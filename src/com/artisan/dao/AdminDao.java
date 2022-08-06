@@ -14,9 +14,14 @@ public class AdminDao extends BaseDao {
 		String sql = "select * from s_admin where name=? and password=?";
 		Admin adminRst = null;
 		try {
-			PreparedStatement prst = con.prepareStatement(sql);//把sql语句传给数据库操作对象
+			//把sql语句传给数据库操作对象，用对象来设置用户名和密码
+			PreparedStatement prst = con.prepareStatement(sql);
 			prst.setString(1, admin.getName());
 			prst.setString(2, admin.getPassword());
+
+			/**
+			之后就执行select语句，返回一个result，如果不是空值，就代表有账号密码对了
+			*/
 			ResultSet executeQuery = prst.executeQuery();
 			if(executeQuery.next()){
 				adminRst = new Admin();
@@ -57,7 +62,7 @@ public class AdminDao extends BaseDao {
 			prst.setString(1, newPassword);
 			prst.setInt(2, id);
 			int rst = prst.executeUpdate();
-			if(rst > 0){
+			if(rst > 0){//视频22.30说这样只知道是否失败，用户不知道旧密码是否填写正确了
 				retString = "密码修改成功！";
 			}
 		} catch (SQLException e) {

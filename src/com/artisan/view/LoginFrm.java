@@ -177,6 +177,7 @@ public class LoginFrm extends JFrame {
 			return;
 		}
 		Admin admin = null;
+		//如果选择的是以系统管理员身份登录
 		if("系统管理员".equals(selectedItem.getName())){
 			AdminDao adminDao = new AdminDao();
 			Admin adminTmp = new Admin();
