@@ -261,7 +261,7 @@ public class ManageClassFrm extends JInternalFrame {
 		classDao.closeDao();
 		setTable(new StudentClass());
 	}
-
+	//选中一行后会有阴影标识
 	protected void selectedTableRow(MouseEvent me) {
 		// TODO Auto-generated method stub
 		DefaultTableModel dft = (DefaultTableModel) classListTable.getModel();

@@ -10,10 +10,7 @@ import com.artisan.model.StudentClass;
 import com.artisan.util.StringUtil;
 
 /**
- * 
  * 班级信息与数据库的操作
- * @author llq
- *
  */
 public class ClassDao extends BaseDao {
 	public boolean addClass(StudentClass scl){
